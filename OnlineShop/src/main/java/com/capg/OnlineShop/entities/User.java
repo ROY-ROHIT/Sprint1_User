@@ -1,12 +1,16 @@
 package com.capg.OnlineShop.entities;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 @Entity
@@ -14,6 +18,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @Table(name="USERS")
 public class User {
 
@@ -29,6 +34,9 @@ public class User {
 	private String role;
 	@Column(name="Email")
 	private String email;
+	@OneToOne(targetEntity=Customer.class,cascade= CascadeType.ALL)
+	@JoinColumn(name="Cp_fk", referencedColumnName="CustID")
+	private Customer cust;
 	
 
 	

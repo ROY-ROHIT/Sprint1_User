@@ -13,6 +13,7 @@ public interface ICustomerRepository extends JpaRepository<Customer,Integer>{
 //	public List<Customer> FindByStatus(String status);
 
 //	public CustomerRequestDTO save(CustomerRequestDTO cust);
+//	public Customer FindByFirstName(String fname);
 
 }
 
